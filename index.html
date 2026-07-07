@@ -6,303 +6,335 @@
     <title>Nice Price | Элитные находки по честной цене</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-main: #0b0d0c;
-            --bg-card: #131615;
-            --bg-accent: #191e1b;
-            --text-main: #f5f7f6;
-            --text-muted: #8a9590;
-            --primary: #4ade80;
-            --primary-glow: rgba(74, 222, 128, 0.25);
-            --border-color: #222925;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: #0a0c0b;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #f5f7f8;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 28px;
         }
 
-        /* Премиальный Header с сиянием */
-        header {
+        /* ----- LUXURY HEADER (Apple-inspired) ----- */
+        .hero {
+            padding: 100px 0 70px 0;
+            background: radial-gradient(circle at 30% 20%, #152a1e 0%, #080b09 80%);
             text-align: center;
-            padding: 90px 0 60px 0;
             position: relative;
-            background: radial-gradient(circle at top, #142b1d 0%, var(--bg-main) 60%);
+            border-bottom: 1px solid rgba(74, 222, 128, 0.08);
+            overflow: hidden;
         }
 
-        .logo-area {
-            position: relative;
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 28px auto;
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 70%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.03) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        .logo-placeholder {
+        .logo-ring {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 32px auto;
+        }
+
+        .logo-mark {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #161a18, #222a25);
-            border: 2px solid var(--primary);
+            background: linear-gradient(145deg, #181e1b, #0e1210);
+            border: 1.5px solid rgba(74, 222, 128, 0.3);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 28px;
-            color: var(--primary);
+            font-weight: 700;
+            font-size: 34px;
+            letter-spacing: -1px;
+            color: #4ade80;
+            box-shadow: 0 20px 50px -10px rgba(0,0,0,0.8), 0 0 0 1px rgba(74, 222, 128, 0.05);
             position: relative;
             z-index: 2;
-            box-shadow: 0 0 30px var(--primary-glow);
+            backdrop-filter: blur(4px);
         }
 
-        /* Пульсирующее зеленое сияние позади лого */
-        .logo-glow {
+        .logo-ring .glow {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: var(--primary);
+            inset: -10px;
             border-radius: 50%;
-            filter: blur(25px);
-            opacity: 0.4;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.2) 0%, transparent 70%);
+            filter: blur(16px);
             z-index: 1;
-            animation: pulse 3s infinite alternate;
+            animation: breathe 4s ease-in-out infinite alternate;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.3; }
-            100% { transform: scale(1.1); opacity: 0.5; }
+        @keyframes breathe {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1.1); }
         }
 
-        h1 {
-            font-size: 42px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #f0f7f3, #a8e6c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        h1 span {
-            color: var(--primary);
-            text-shadow: 0 0 15px var(--primary-glow);
+        .hero .subhead {
+            font-size: 20px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 640px;
+            margin: 0 auto 38px auto;
+            letter-spacing: -0.2px;
         }
 
-        .tagline {
-            color: var(--text-muted);
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 35px auto;
-            font-weight: 400;
-        }
-
-        .cta-buttons {
+        .cta-group {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 18px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 3;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 14px 32px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            justify-content: center;
+            padding: 16px 36px;
+            border-radius: 40px;
+            font-weight: 500;
             font-size: 16px;
-            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            letter-spacing: 0.2px;
+            border: 1px solid transparent;
         }
 
         .btn-primary {
-            background-color: var(--primary);
-            color: #060807;
-            box-shadow: 0 4px 20px rgba(74, 222, 128, 0.2);
+            background: #4ade80;
+            color: #0a0f0c;
+            box-shadow: 0 8px 30px -6px rgba(74, 222, 128, 0.25);
+            font-weight: 600;
         }
 
         .btn-primary:hover {
-            background-color: #22c55e;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(74, 222, 128, 0.35);
+            background: #2ecc71;
+            transform: scale(1.02);
+            box-shadow: 0 14px 40px -10px rgba(74, 222, 128, 0.4);
         }
 
         .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.03);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.04);
+            color: #eef3f0;
+            border-color: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(8px);
         }
 
         .btn-secondary:hover {
-            background-color: var(--bg-accent);
-            border-color: var(--primary);
-            transform: translateY(-2px);
+            background: rgba(74, 222, 128, 0.08);
+            border-color: rgba(74, 222, 128, 0.2);
+            transform: scale(1.02);
         }
 
-        /* Блок "Маркетинг / Уши" */
-        .features-section {
-            padding: 40px 0;
+        /* ----- MANIFESTO (Luxury card) ----- */
+        .manifesto {
+            margin: 40px 0 20px 0;
         }
 
-        .manifesto-box {
-            background: linear-gradient(145deg, var(--bg-card), #101312);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 32px;
+        .manifesto-card {
+            background: rgba(18, 23, 20, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 222, 128, 0.06);
+            border-radius: 28px;
+            padding: 44px 48px;
             text-align: center;
+            box-shadow: 0 20px 60px -20px rgba(0,0,0,0.8);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .manifesto-box::before {
+        .manifesto-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background-color: var(--primary);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4ade80, transparent);
+            opacity: 0.4;
         }
 
-        .manifesto-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 12px;
+        .manifesto-card .label {
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+            color: #4ade80;
+            font-weight: 600;
+            margin-bottom: 14px;
         }
 
-        .manifesto-text {
-            font-size: 16px;
-            color: #e2e8f0;
-            max-width: 800px;
+        .manifesto-card p {
+            font-size: 18px;
+            font-weight: 300;
+            max-width: 780px;
             margin: 0 auto;
-            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
         }
 
-        /* Статистика плашками */
-        .stats-grid {
+        /* ----- STATS (clean & minimal) ----- */
+        .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin: 40px 0;
+            margin: 44px 0 48px 0;
         }
 
-        @media (max-width: 600px) {
-            .stats-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 32px; }
-        }
-
-        .stat-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 24px;
-            border-radius: 14px;
+        .stat-item {
+            background: rgba(18, 23, 20, 0.5);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 28px 20px;
             text-align: center;
-            transition: border-color 0.3s;
-        }
-        .stat-card:hover { border-color: rgba(74, 222, 128, 0.3); }
-
-        .stat-val {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 6px;
+            transition: border-color 0.2s;
         }
 
-        /* Слайдер Отзывов (Интуитивный карусель) */
-        .reviews-section {
-            padding: 40px 0;
-            position: relative;
+        .stat-item:hover {
+            border-color: rgba(74, 222, 128, 0.15);
         }
 
-        .section-header {
+        .stat-number {
+            font-size: 36px;
+            font-weight: 600;
+            color: #4ade80;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .stat-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.55);
+            font-weight: 300;
+        }
+
+        @media (max-width: 640px) {
+            .stats { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 38px; }
+            .manifesto-card { padding: 32px 24px; }
+        }
+
+        /* ----- REVIEWS SLIDER (elevated) ----- */
+        .reviews {
+            padding: 16px 0 40px 0;
+        }
+
+        .section-head {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
-        .section-title {
+        .section-head h2 {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: #f0f6f2;
         }
 
-        .slider-controls {
+        .slider-nav {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .control-btn {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
+        .slider-btn {
             width: 44px;
             height: 44px;
-            border-radius: 50%;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #d0dbd4;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s;
+            font-size: 20px;
             user-select: none;
-            font-size: 18px;
         }
 
-        .control-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background-color: var(--bg-accent);
+        .slider-btn:hover {
+            background: rgba(74, 222, 128, 0.06);
+            border-color: rgba(74, 222, 128, 0.15);
+            color: #4ade80;
         }
 
-        .slider-container {
+        .slider-wrap {
             overflow: hidden;
+            border-radius: 24px;
             width: 100%;
-            border-radius: 16px;
         }
 
         .slider-track {
             display: flex;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             gap: 20px;
         }
 
-        .review-slide {
+        .review-card {
             min-width: calc(50% - 10px);
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 28px;
-            border-radius: 16px;
+            background: rgba(16, 21, 18, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 28px 28px 22px 28px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-sizing: border-box;
+            transition: border-color 0.2s;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+        }
+
+        .review-card:hover {
+            border-color: rgba(74, 222, 128, 0.08);
         }
 
         @media (max-width: 768px) {
-            .review-slide { min-width: 100%; }
+            .review-card { min-width: 100%; }
         }
 
-        .review-header {
+        .review-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
-        .user-info {
+        .review-user {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -311,305 +343,294 @@
         .avatar {
             width: 44px;
             height: 44px;
-            background-color: var(--bg-accent);
-            border-radius: 50%;
+            background: linear-gradient(145deg, #1a241f, #0e1411);
+            border-radius: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            color: var(--primary);
-            border: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 16px;
+            color: #4ade80;
+            border: 1px solid rgba(74, 222, 128, 0.1);
+            flex-shrink: 0;
         }
 
-        .user-name { font-weight: 600; font-size: 16px; }
-        .review-date { font-size: 12px; color: var(--text-muted); }
-        .stars { color: #fbbf24; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;}
-        
-        .item-name {
-            font-size: 12px;
-            background-color: rgba(74, 222, 128, 0.05);
-            padding: 5px 12px;
-            border-radius: 6px;
-            display: inline-block;
-            margin-bottom: 14px;
-            color: #a3e635;
-            border: 1px solid rgba(74, 222, 128, 0.1);
+        .review-user .name {
             font-weight: 500;
+            font-size: 15px;
+            color: #f0f7f2;
+        }
+
+        .review-user .date {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 2px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 15px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .item-tag {
+            display: inline-block;
+            background: rgba(74, 222, 128, 0.05);
+            border: 1px solid rgba(74, 222, 128, 0.04);
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #9ed4b0;
+            margin-bottom: 14px;
+            align-self: flex-start;
+            letter-spacing: 0.2px;
         }
 
         .review-text {
-            font-size: 14px;
-            color: #e2e8f0;
-            flex-grow: 1;
-            font-style: italic;
+            font-size: 15px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            flex: 1;
+            font-style: normal;
         }
 
         .review-footer {
             margin-top: 20px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
             display: flex;
             justify-content: space-between;
             font-size: 12px;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.3);
         }
 
-        .badge-delivery { color: #60a5fa; font-weight: 500; }
+        .badge-delivery {
+            color: #7aa9f0;
+            font-weight: 400;
+        }
 
         footer {
-            margin-top: 80px;
-            padding: 40px 0;
+            margin-top: 60px;
+            padding: 32px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
             text-align: center;
-            font-size: 14px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.3px;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- HERO / Лого + заголовок -->
+    <header class="hero">
         <div class="container">
-            <div class="logo-area">
-                <div class="logo-placeholder">NP</div>
-                <div class="logo-glow"></div>
+            <div class="logo-ring">
+                <div class="logo-mark">NP</div>
+                <div class="glow"></div>
             </div>
-            <h1>NICE <span>PRICE</span></h1>
-            <p class="tagline">Прямые поставки из Китая. Честные сделки по нормальной цене без переплат и накруток перекупщиков.</p>
-            <div class="cta-buttons">
-                <a href="https://t.me/nice_price_shop" target="_blank" class="btn btn-primary">Забрать скидку в Telegram</a>
+            <h1>Nice Price</h1>
+            <p class="subhead">Прямые поставки из Китая. Честные цены без посредников. Качество, которое проверяем лично.</p>
+            <div class="cta-group">
+                <a href="https://t.me/nice_price_shop" target="_blank" class="btn btn-primary">✨ Получить доступ</a>
                 <a href="https://www.avito.ru/user/04de4d6bb99f680c60413de056f69ef0/profile?src=sharing" target="_blank" class="btn btn-secondary">Каталог на Авито</a>
             </div>
         </div>
     </header>
 
     <main class="container">
-        
-        <!-- Блок прогрева ("В уши") -->
-        <section class="features-section">
-            <div class="manifesto-box">
-                <div class="manifesto-title">Честная сделка. Без скрытых наценок.</div>
-                <p class="manifesto-text">
-                    Я не содержу огромные склады и штаты ботов, поэтому не закладываю эти расходы в стоимость вещей. Каждая позиция везется напрямую из фабричного Китая, проверяется мной лично на брак вручную и продается с минимальной маржой. Вы получаете топовое качество, оперативную отправку в день заказа и человеческое отношение без скриптов.
-                </p>
+        <!-- Манифест: лаконично, дорого -->
+        <section class="manifesto">
+            <div class="manifesto-card">
+                <div class="label">Философия</div>
+                <p>Я не содержу склады и не нанимаю ботов — поэтому не закладываю лишние расходы. Каждый товар проходит ручную проверку на брак, идёт напрямую с фабрик и продаётся с минимальной наценкой. Честность, скорость, человеческое отношение.</p>
             </div>
         </section>
-        
-        <!-- Интуитивные цифры доверия -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-val">5.0 ★</div>
-                <div class="stat-lbl">Авито рейтинг доверия</div>
+
+        <!-- Статистика: минималистично -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">5.0 ★</div>
+                <div class="stat-desc">Рейтинг на Авито</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-val">0%</div>
-                <div class="stat-lbl">Рисков (Оплата при получении)</div>
+            <div class="stat-item">
+                <div class="stat-number">0%</div>
+                <div class="stat-desc">Рисков, оплата при получении</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-val">1 на 1</div>
-                <div class="stat-lbl">Личный разбор любых вопросов</div>
+            <div class="stat-item">
+                <div class="stat-number">1:1</div>
+                <div class="stat-desc">Личный подход к каждому</div>
             </div>
         </div>
 
-        <!-- Слайдер отзывов -->
-        <section class="reviews-section">
-            <div class="section-header">
-                <h2 class="section-title">Реальный опыт покупателей</h2>
-                <div class="slider-controls">
-                    <div class="control-btn" id="prevBtn">&#8592;</div>
-                    <div class="control-btn" id="nextBtn">&#8594;</div>
+        <!-- СЛАЙДЕР ОТЗЫВОВ (премиум) -->
+        <section class="reviews">
+            <div class="section-head">
+                <h2>Отзывы покупателей</h2>
+                <div class="slider-nav">
+                    <div class="slider-btn" id="prevBtn">←</div>
+                    <div class="slider-btn" id="nextBtn">→</div>
                 </div>
             </div>
 
-            <div class="slider-container">
+            <div class="slider-wrap">
                 <div class="slider-track" id="sliderTrack">
-                    
-                    <!-- Отзыв Евгений -->
-                    <div class="review-slide">
-                        <div>
-                            <div class="review-header">
-                                <div class="user-info">
-                                    <div class="avatar">ЕМ</div>
-                                    <div>
-                                        <div class="user-name">Евгений Муляев</div>
-                                        <div class="review-date">11 февраля</div>
-                                    </div>
-                                </div>
+                    <!-- 1 -->
+                    <div class="review-card">
+                        <div class="review-top">
+                            <div class="review-user">
+                                <div class="avatar">ЕМ</div>
+                                <div><div class="name">Евгений Муляев</div><div class="date">11 февраля</div></div>
                             </div>
-                            <div class="stars">★★★★★</div>
-                            <div class="item-name">Электронные футы Daedo Gen2</div>
-                            <div class="review-text">«Все супер. Быстрая отправка, товар соответствует описанию.»</div>
                         </div>
-                        <div class="review-footer">
-                            <span>Сделка состоялась</span>
-                            <span class="badge-delivery">🚚 Авито Доставка</span>
-                        </div>
+                        <div class="stars">★★★★★</div>
+                        <span class="item-tag">Электронные футы Daedo Gen2</span>
+                        <div class="review-text">«Все супер. Быстрая отправка, товар соответствует описанию.»</div>
+                        <div class="review-footer"><span>Сделка состоялась</span><span class="badge-delivery">🚚 Авито Доставка</span></div>
                     </div>
-
-                    <!-- Отзыв Юлия -->
-                    <div class="review-slide">
-                        <div>
-                            <div class="review-header">
-                                <div class="user-info">
-                                    <div class="avatar">Ю</div>
-                                    <div>
-                                        <div class="user-name">Юлия</div>
-                                        <div class="review-date">17 ноября</div>
-                                    </div>
-                                </div>
+                    <!-- 2 -->
+                    <div class="review-card">
+                        <div class="review-top">
+                            <div class="review-user">
+                                <div class="avatar">Ю</div>
+                                <div><div class="name">Юлия</div><div class="date">17 ноября</div></div>
                             </div>
-                            <div class="stars">★★★★★</div>
-                            <div class="item-name">Швабра и ведро с отжимом</div>
-                            <div class="review-text">«Швабру и ведро выкупила, новое, целое, надеюсь прослужит долго. Продавец вежливый, отправил сразу. Все отлично, рекомендую.»</div>
                         </div>
-                        <div class="review-footer">
-                            <span>Сделка состоялась</span>
-                            <span class="badge-delivery">🚚 Авито Доставка</span>
-                        </div>
+                        <div class="stars">★★★★★</div>
+                        <span class="item-tag">Швабра и ведро с отжимом</span>
+                        <div class="review-text">«Швабру и ведро выкупила, новое, целое, надеюсь прослужит долго. Продавец вежливый, отправил сразу.»</div>
+                        <div class="review-footer"><span>Сделка состоялась</span><span class="badge-delivery">🚚 Авито Доставка</span></div>
                     </div>
-
-                    <!-- Отзыв Николай -->
-                    <div class="review-slide">
-                        <div>
-                            <div class="review-header">
-                                <div class="user-info">
-                                    <div class="avatar">Н</div>
-                                    <div>
-                                        <div class="user-name">Николай</div>
-                                        <div class="review-date">17 декабря</div>
-                                    </div>
-                                </div>
+                    <!-- 3 -->
+                    <div class="review-card">
+                        <div class="review-top">
+                            <div class="review-user">
+                                <div class="avatar">Н</div>
+                                <div><div class="name">Николай</div><div class="date">17 декабря</div></div>
                             </div>
-                            <div class="stars">★★★★★</div>
-                            <div class="item-name">Аккумулятор iPhone 6 Plus</div>
-                            <div class="review-text">«Приехало все четко и быстро. Спасибо продавцу!»</div>
                         </div>
-                        <div class="review-footer">
-                            <span>Сделка состоялась</span>
-                            <span class="badge-delivery">🚚 Авито Доставка</span>
-                        </div>
+                        <div class="stars">★★★★★</div>
+                        <span class="item-tag">Аккумулятор iPhone 6 Plus</span>
+                        <div class="review-text">«Приехало все четко и быстро. Спасибо продавцу!»</div>
+                        <div class="review-footer"><span>Сделка состоялась</span><span class="badge-delivery">🚚 Авито Доставка</span></div>
                     </div>
-
-                    <!-- Отзыв Михаил -->
-                    <div class="review-slide">
-                        <div>
-                            <div class="review-header">
-                                <div class="user-info">
-                                    <div class="avatar">М</div>
-                                    <div>
-                                        <div class="user-name">Михаил</div>
-                                        <div class="review-date">29 ноября</div>
-                                    </div>
-                                </div>
+                    <!-- 4 -->
+                    <div class="review-card">
+                        <div class="review-top">
+                            <div class="review-user">
+                                <div class="avatar">М</div>
+                                <div><div class="name">Михаил</div><div class="date">29 ноября</div></div>
                             </div>
-                            <div class="stars">★★★★★</div>
-                            <div class="item-name">Клавиатурa Bluetooth беспроводная</div>
-                            <div class="review-text">«Все четко, заказал, оперативно отправил, клава в отл состоянии!»</div>
                         </div>
-                        <div class="review-footer">
-                            <span>Сделка состоялась</span>
-                            <span class="badge-delivery">🚚 Авито Доставка</span>
-                        </div>
+                        <div class="stars">★★★★★</div>
+                        <span class="item-tag">Клавиатура Bluetooth</span>
+                        <div class="review-text">«Все четко, заказал, оперативно отправил, клава в отл состоянии!»</div>
+                        <div class="review-footer"><span>Сделка состоялась</span><span class="badge-delivery">🚚 Авито Доставка</span></div>
                     </div>
-
-                    <!-- Отзыв Ольга -->
-                    <div class="review-slide">
-                        <div>
-                            <div class="review-header">
-                                <div class="user-info">
-                                    <div class="avatar">О</div>
-                                    <div>
-                                        <div class="user-name">Ольга</div>
-                                        <div class="review-date">23 ноября</div>
-                                    </div>
-                                </div>
+                    <!-- 5 -->
+                    <div class="review-card">
+                        <div class="review-top">
+                            <div class="review-user">
+                                <div class="avatar">О</div>
+                                <div><div class="name">Ольга</div><div class="date">23 ноября</div></div>
                             </div>
-                            <div class="stars">★★★★★</div>
-                            <div class="item-name">Аккумулятор для Айфон 6S Plus</div>
-                            <div class="review-text">«Всё отлично) Без каких-то обсуждений и проблем продавец отправил товар)»</div>
                         </div>
-                        <div class="review-footer">
-                            <span>Сделка состоялась</span>
-                            <span class="badge-delivery">🚚 Авито Доставка</span>
-                        </div>
+                        <div class="stars">★★★★★</div>
+                        <span class="item-tag">Аккумулятор для iPhone 6S Plus</span>
+                        <div class="review-text">«Всё отлично) Без каких-то обсуждений и проблем продавец отправил товар)»</div>
+                        <div class="review-footer"><span>Сделка состоялась</span><span class="badge-delivery">🚚 Авито Доставка</span></div>
                     </div>
-
-                    <!-- Отзыв Иван -->
-                    <div class="review-slide">
-                        <div>
-                            <div class="review-header">
-                                <div class="user-info">
-                                    <div class="avatar">И</div>
-                                    <div>
-                                        <div class="user-name">Иван Без Торга</div>
-                                        <div class="review-date">20 февраля</div>
-                                    </div>
-                                </div>
+                    <!-- 6 -->
+                    <div class="review-card">
+                        <div class="review-top">
+                            <div class="review-user">
+                                <div class="avatar">И</div>
+                                <div><div class="name">Иван Без Торга</div><div class="date">20 февраля</div></div>
                             </div>
-                            <div class="stars">★★★★★</div>
-                            <div class="item-name">Набор для рыболовной рогатки</div>
-                            <div class="review-text">«Все хорошо. Сделка быстрая.»</div>
                         </div>
-                        <div class="review-footer">
-                            <span>Сделка состоялась</span>
-                            <span class="badge-delivery">🚚 Авито Доставка</span>
-                        </div>
+                        <div class="stars">★★★★★</div>
+                        <span class="item-tag">Набор для рыболовной рогатки</span>
+                        <div class="review-text">«Все хорошо. Сделка быстрая.»</div>
+                        <div class="review-footer"><span>Сделка состоялась</span><span class="badge-delivery">🚚 Авито Доставка</span></div>
                     </div>
-
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Nice Price • Импорт фабричного качества. Работаем для людей.</p>
+            <p>© 2026 Nice Price · Импорт фабричного качества. Работаем для людей.</p>
         </div>
     </footer>
 
-    <!-- Логика интерактивного слайдера -->
     <script>
-        const track = document.getElementById('sliderTrack');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        
-        let index = 0;
+        (function() {
+            const track = document.getElementById('sliderTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
 
-        function getSlidesPerView() {
-            return window.innerWidth <= 768 ? 1 : 2;
-        }
-
-        function updateSlider() {
-            const slides = document.querySelectorAll('.review-slide');
-            const slidesPerView = getSlidesPerView();
-            const maxIndex = slides.length - slidesPerView;
-            
-            if (index > maxIndex) index = maxIndex;
-            if (index < 0) index = 0;
-
-            const gap = window.innerWidth <= 768 ? 0 : 20;
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            
-            track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
-        }
-
-        nextBtn.addEventListener('click', () => {
-            const slides = document.querySelectorAll('.review-slide');
-            if (index < slides.length - getSlidesPerView()) {
-                index++;
-                updateSlider();
+            function getSlidesPerView() {
+                return window.innerWidth <= 768 ? 1 : 2;
             }
-        });
 
-        prevBtn.addEventListener('click', () => {
-            if (index > 0) {
-                index--;
-                updateSlider();
+            function getSlideWidth() {
+                const slides = document.querySelectorAll('.review-card');
+                if (!slides.length) return 0;
+                return slides[0].getBoundingClientRect().width;
             }
-        });
 
-        window.addEventListener('resize', updateSlider);
+            function getGap() {
+                return window.innerWidth <= 768 ? 0 : 20;
+            }
+
+            function updateSlider() {
+                const slides = document.querySelectorAll('.review-card');
+                const total = slides.length;
+                const perView = getSlidesPerView();
+                const maxIndex = Math.max(0, total - perView);
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                if (currentIndex < 0) currentIndex = 0;
+
+                const width = getSlideWidth();
+                const gap = getGap();
+                const offset = currentIndex * (width + gap);
+                track.style.transform = `translateX(-${offset}px)`;
+            }
+
+            function slideNext() {
+                const total = document.querySelectorAll('.review-card').length;
+                const perView = getSlidesPerView();
+                if (currentIndex < total - perView) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            }
+
+            function slidePrev() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            }
+
+            nextBtn.addEventListener('click', slideNext);
+            prevBtn.addEventListener('click', slidePrev);
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(updateSlider, 100);
+            });
+
+            // Инициализация
+            setTimeout(updateSlider, 20);
+        })();
     </script>
+
 </body>
 </html>
